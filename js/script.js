@@ -185,7 +185,7 @@ function search(input,users){
 //Creating the final search function to display the correct users or error message to the screen
 function finalSearch(str,users){
     //if the input form is empty we display all the fetched users
-    if(str.length===0){
+    if(str.length ===0 ){
         gallery.innerHTML = "";
         usersArray.forEach(user=> createCard(user));
         appendEventListeners();
@@ -215,11 +215,16 @@ input.addEventListener('keyup',() => {
     }else{
         null;
     }
-
-
 })
 
+//Event listener so when we empty the search input the starter cards are shown
+searchContainer.addEventListener("search", (e) => {
+    gallery.innerHTML = "";
+    usersArray.forEach(user=> createCard(user));
+    appendEventListeners();
+  });
+
 submit.addEventListener('click', (e) => {
-    e.preventDefault();
+        e.preventDefault();
 })
 
